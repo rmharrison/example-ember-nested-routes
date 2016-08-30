@@ -8,6 +8,8 @@ A simple nested routing example to show common gotchas
 
 Blog post here: https://medium.com/@rmharrison/emberjs-gotcha-nested-routes-687a0a030ce7#.lmjx7ookc
 
+![Screenshot](/public/screenshot.png?raw=true "Screenshot")
+
 ## Installation
 
 * `git clone <repository-url>` this repository
