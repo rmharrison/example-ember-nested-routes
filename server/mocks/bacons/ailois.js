@@ -7,9 +7,9 @@ module.exports = function(app) {
     var bacon_id = req.params.bacon_id;
     res.send({
       'bacons/ailois': [
-        {id: 1, bacon_id: bacon_id}, 
-        {id: 2, bacon_id: bacon_id}, 
-        {id: 3, bacon_id: bacon_id}
+        {id: 1, bacon_id: bacon_id, mustard: true, rating: 3}, 
+        {id: 2, bacon_id: bacon_id, mustard: false, rating: 8}, 
+        {id: 3, bacon_id: bacon_id, mustard: true, rating: 2}
       ]
     });
   });
@@ -20,10 +20,14 @@ module.exports = function(app) {
 
   baconsAiloisRouter.get('/:bacon_id/ailois/:id', function(req, res) {
     var bacon_id = req.params.bacon_id;
+    var rating = Math.floor(Math.random()*11);
+    var mustard = Math.random() > 0.5 ? true : false;
     res.send({
       'bacons/ailois': {
         id: req.params.id,
-        bacon_id: bacon_id
+        bacon_id: bacon_id,
+        mustard: mustard,
+        rating: rating
       }
     });
   });

@@ -5,7 +5,11 @@ module.exports = function(app) {
 
   baconsRouter.get('/', function(req, res) {
     res.send({
-      'bacons': [{id: 1}, {id: 2}, {id: 3}]
+      'bacons': [
+        {id: 1, crispy: true, rating: 9},
+        {id: 2, crispy: true, rating: 7},
+        {id: 3, crispy: false, rating: 2},
+      ]
     });
   });
 
@@ -14,9 +18,13 @@ module.exports = function(app) {
   });
 
   baconsRouter.get('/:id', function(req, res) {
+    var rating = Math.floor(Math.random()*11);
+    var crispy = Math.random() > 0.5 ? true : false;
     res.send({
       'bacons': {
-        id: req.params.id
+        id: req.params.id,
+        crispy: crispy,
+        rating: rating
       }
     });
   });
