@@ -3,8 +3,8 @@ module.exports = function(app) {
   var express = require('express');
   var baconsAiloisRouter = express.Router();
 
-  baconsAiloisRouter.get('/bacons/:bacon_id/aiolis', function(req, res) {
-    var bacon_id = req.params.bacon_id;
+  baconsAiloisRouter.get('/', function(req, res) {
+    var bacon_id = req.query.bacon_id;
     res.send({
       'aiolis': [
         {id: 1, bacon_id: bacon_id, mustard: true, rating: 3}, 
@@ -14,12 +14,12 @@ module.exports = function(app) {
     });
   });
 
-  baconsAiloisRouter.post('/bacons/:bacon_id/aiolis', function(req, res) {
+  baconsAiloisRouter.post('/', function(req, res) {
     res.status(201).end();
   });
 
-  baconsAiloisRouter.get('/bacons/:bacon_id/aiolis/:id', function(req, res) {
-    var bacon_id = req.params.bacon_id;
+  baconsAiloisRouter.get('/:id', function(req, res) {
+    var bacon_id = req.query.bacon_id;
     var rating = Math.floor(Math.random()*11);
     var mustard = Math.random() > 0.5 ? true : false;
     res.send({
@@ -32,8 +32,8 @@ module.exports = function(app) {
     });
   });
 
-  baconsAiloisRouter.put('/bacons/:bacon_id/aiolis/:id', function(req, res) {
-    var bacon_id = req.params.bacon_id;
+  baconsAiloisRouter.put('/:id', function(req, res) {
+    var bacon_id = req.query.bacon_id;
     res.send({
       'aiolis': {
         id: req.params.id,
@@ -42,7 +42,7 @@ module.exports = function(app) {
     });
   });
 
-  baconsAiloisRouter.delete('/bacons/:bacon_id/aiolis/:id', function(req, res) {
+  baconsAiloisRouter.delete('/:id', function(req, res) {
     res.status(204).end();
   });
 
@@ -56,5 +56,5 @@ module.exports = function(app) {
   // this mock uncommenting the following line:
   //
   //app.use('/api/bacons-aiolis', require('body-parser'));
-  app.use('/api', baconsAiloisRouter);
+  app.use('/api/aiolis', baconsAiloisRouter);
 };
