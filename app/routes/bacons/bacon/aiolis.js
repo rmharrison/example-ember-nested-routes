@@ -2,6 +2,6 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   model: function(params) {
-    return this.store.find('bacon', params.bacon_id);
+    //return this.store.findAll('aioli');
   }
 });
