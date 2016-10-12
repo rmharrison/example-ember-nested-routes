@@ -5,4 +5,19 @@
   <li>Self: https://localhost:4200/bacons/1</li> 
   <li>Child: {{#link-to 'bacons.bacon.aiolis'}}https://localhost:4200/bacons/1/aiolis{{/link-to}}</li>
 </ul>
+
+<table>
+  <tr>
+    <th>id</th>
+    <th>crispy</th>
+    <th>rating</th>
+  </tr>
+  <tr>
+    <th>{{model.id}}</th>
+    <th>{{model.crispy}}</th>
+    <th>{{model.rating}}</th>
+  </tr>
+</table>
+
+
 {{outlet}}

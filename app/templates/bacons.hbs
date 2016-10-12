@@ -5,4 +5,16 @@
   <li>Self: https://localhost:4200/bacons</li>
   <li>Child: {{#link-to 'bacons.bacon' 1}} https://localhost:4200/bacons/1 {{/link-to}}</li>
 </ul>
+
+<table>
+<tr>
+  <th>id</th>
+</tr>
+{{#each model as |bacon|}}
+<tr>
+  <th>{{bacon.id}}</th>
+</tr>
+{{/each}}
+</table>
+
 {{outlet}}
