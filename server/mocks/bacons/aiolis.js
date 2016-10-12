@@ -3,10 +3,10 @@ module.exports = function(app) {
   var express = require('express');
   var baconsAiloisRouter = express.Router();
 
-  baconsAiloisRouter.get('/:bacon_id/ailois', function(req, res) {
+  baconsAiloisRouter.get('/bacons/:bacon_id/aiolis', function(req, res) {
     var bacon_id = req.params.bacon_id;
     res.send({
-      'bacons/ailois': [
+      'aiolis': [
         {id: 1, bacon_id: bacon_id, mustard: true, rating: 3}, 
         {id: 2, bacon_id: bacon_id, mustard: false, rating: 8}, 
         {id: 3, bacon_id: bacon_id, mustard: true, rating: 2}
@@ -14,16 +14,16 @@ module.exports = function(app) {
     });
   });
 
-  baconsAiloisRouter.post('/:bacon_id/ailois', function(req, res) {
+  baconsAiloisRouter.post('/bacons/:bacon_id/aiolis', function(req, res) {
     res.status(201).end();
   });
 
-  baconsAiloisRouter.get('/:bacon_id/ailois/:id', function(req, res) {
+  baconsAiloisRouter.get('/bacons/:bacon_id/aiolis/:id', function(req, res) {
     var bacon_id = req.params.bacon_id;
     var rating = Math.floor(Math.random()*11);
     var mustard = Math.random() > 0.5 ? true : false;
     res.send({
-      'bacons/ailois': {
+      'aiolis': {
         id: req.params.id,
         bacon_id: bacon_id,
         mustard: mustard,
@@ -32,17 +32,17 @@ module.exports = function(app) {
     });
   });
 
-  baconsAiloisRouter.put('/:bacon_id/ailois/:id', function(req, res) {
+  baconsAiloisRouter.put('/bacons/:bacon_id/aiolis/:id', function(req, res) {
     var bacon_id = req.params.bacon_id;
     res.send({
-      'bacons/ailois': {
+      'aiolis': {
         id: req.params.id,
         bacon_id: bacon_id
       }
     });
   });
 
-  baconsAiloisRouter.delete('/:bacon_id/ailois/:id', function(req, res) {
+  baconsAiloisRouter.delete('/bacons/:bacon_id/aiolis/:id', function(req, res) {
     res.status(204).end();
   });
 
@@ -55,6 +55,6 @@ module.exports = function(app) {
   // After installing, you need to `use` the body-parser for
   // this mock uncommenting the following line:
   //
-  //app.use('/api/bacons-ailois', require('body-parser'));
-  app.use('/api/bacons', baconsAiloisRouter);
+  //app.use('/api/bacons-aiolis', require('body-parser'));
+  app.use('/api', baconsAiloisRouter);
 };
