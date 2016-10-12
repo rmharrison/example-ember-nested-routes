@@ -7,5 +7,6 @@ export default Ember.Route.extend({
     //inflector.pluralize('bacon')
     //bacon.constructor.modelName
     return this.store.findAll('aioli', {adapterOptions: {bacon_id: bacon.id}});
+    //return this.store.query('aioli', {bacon_id: bacon.id});
   }
 });
