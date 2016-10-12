@@ -5,4 +5,17 @@
   <li>Self: https://localhost:4200/bacons/1/aiolis</li>
   <li>Child: {{#link-to 'bacons.bacon.aiolis.aioli' 1}}https://localhost:4200/bacons/1/aiolis/1{{/link-to}}</li>
 </ul>
+
+<table>
+<tr>
+  <th>id</th>
+</tr>
+{{#each model as |ailoli|}}
+<tr>
+  <th>{{ailoli.id}}</th>
+</tr>
+{{/each}}
+</table>
+
+
 {{outlet}}
